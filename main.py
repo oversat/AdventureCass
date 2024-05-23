@@ -39,10 +39,10 @@ def quest2():
 
 def quest3():
     music.play(music.create_song(assets.song("""
-    beat1""")),
+    Beat1""")),
         music.PlaybackMode.IN_BACKGROUND)
     adventure.add_image_to_text_log(assets.image("""
-    cass1"""))
+    cass2"""))
     adventure.add_to_textlog("You found the cassowary, what do you do?")
     adventure.add_to_textlog("Press (A) to approach it.")
     adventure.add_to_textlog("Press (B) to note the location for scientists.")
@@ -59,22 +59,22 @@ def quest3():
 
 def quest4():
     music.play(music.create_song(assets.song("""
-    beat1""")),
+    Beat1""")),
         music.PlaybackMode.IN_BACKGROUND)
     adventure.add_image_to_text_log(assets.image("""
-    cass1"""))
+    cass3"""))
     adventure.add_to_textlog("What's one thing you learned about Northern Cassowary?")
-    adventure.add_to_textlog("Press (A) if they are from New Guinea.")
-    adventure.add_to_textlog("Press (B) if they can fly.")
+    adventure.add_to_textlog("Press (A) They are from New Guinea.")
+    adventure.add_to_textlog("Press (B) They can fly.")
     
     while not (controller.A.is_pressed() or controller.B.is_pressed()):
             pause(100)
         
     if controller.A.is_pressed():
-            adventure.add_to_textlog("It makes a scary noise and runs into the forest.")
-            quest1()
+            adventure.add_to_textlog("That's right!")
+            game.over(True)
     else:
-            adventure.add_to_textlog("The cassowary's head pops up, and then it retreats into the deep forest.")
+            adventure.add_to_textlog("Nope, they can't fly.")
             game.over(False)
 
 quest1()

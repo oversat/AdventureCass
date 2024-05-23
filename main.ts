@@ -41,9 +41,9 @@ function quest2() {
 
 function quest3() {
     music.play(music.createSong(assets.song`
-    beat1`), music.PlaybackMode.InBackground)
+    Beat1`), music.PlaybackMode.InBackground)
     adventure.addImageToTextLog(assets.image`
-    cass1`)
+    cass2`)
     adventure.addToTextlog("You found the cassowary, what do you do?")
     adventure.addToTextlog("Press (A) to approach it.")
     adventure.addToTextlog("Press (B) to note the location for scientists.")
@@ -62,20 +62,20 @@ function quest3() {
 
 function quest4() {
     music.play(music.createSong(assets.song`
-    beat1`), music.PlaybackMode.InBackground)
+    Beat1`), music.PlaybackMode.InBackground)
     adventure.addImageToTextLog(assets.image`
-    cass1`)
+    cass3`)
     adventure.addToTextlog("What's one thing you learned about Northern Cassowary?")
-    adventure.addToTextlog("Press (A) if they are from New Guinea.")
-    adventure.addToTextlog("Press (B) if they can fly.")
+    adventure.addToTextlog("Press (A) They are from New Guinea.")
+    adventure.addToTextlog("Press (B) They can fly.")
     while (!(controller.A.isPressed() || controller.B.isPressed())) {
         pause(100)
     }
     if (controller.A.isPressed()) {
-        adventure.addToTextlog("It makes a scary noise and runs into the forest.")
-        quest1()
+        adventure.addToTextlog("That's right!")
+        game.over(true)
     } else {
-        adventure.addToTextlog("The cassowary's head pops up, and then it retreats into the deep forest.")
+        adventure.addToTextlog("Nope, they can't fly.")
         game.over(false)
     }
     
