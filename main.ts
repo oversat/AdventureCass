@@ -5,9 +5,9 @@ function quest1() {
     adventure.addToTextlog("You're looking for a Cassowary, a large colorful bird from New Guinea.")
     adventure.addToTextlog("Press (A) to enter the forests of Northern New Guinea.")
     adventure.addToTextlog("Press (B) to give up and go home.")
-    while (!(controller.A.isPressed() || controller.B.isPressed())) {
-        pause(100)
-    }
+    pauseUntil(function on_pause_until(): boolean {
+        return controller.A.isPressed() || controller.B.isPressed()
+    })
     if (controller.A.isPressed()) {
         adventure.addToTextlog("Fact about New Guinea's cassowary habitats.")
         quest2()
@@ -26,9 +26,9 @@ function quest2() {
     adventure.addToTextlog("You reach a forest in New Guinea.")
     adventure.addToTextlog("Press (A) to look left.")
     adventure.addToTextlog("Press (B) to look right.")
-    while (!(controller.A.isPressed() || controller.B.isPressed())) {
-        pause(100)
-    }
+    pauseUntil(function on_pause_until(): boolean {
+        return controller.A.isPressed() || controller.B.isPressed()
+    })
     if (controller.A.isPressed()) {
         adventure.addToTextlog("You found one!")
         quest3()
@@ -47,9 +47,9 @@ function quest3() {
     adventure.addToTextlog("You found the cassowary, what do you do?")
     adventure.addToTextlog("Press (A) to approach it.")
     adventure.addToTextlog("Press (B) to note the location for scientists.")
-    while (!(controller.A.isPressed() || controller.B.isPressed())) {
-        pause(100)
-    }
+    pauseUntil(function on_pause_until(): boolean {
+        return controller.A.isPressed() || controller.B.isPressed()
+    })
     if (controller.A.isPressed()) {
         adventure.addToTextlog("It makes a scary noise and runs into the forest.")
         quest4()
@@ -64,13 +64,13 @@ function quest4() {
     music.play(music.createSong(assets.song`
     Beat1`), music.PlaybackMode.InBackground)
     adventure.addImageToTextLog(assets.image`
-    cass3`)
+    cass4`)
     adventure.addToTextlog("What's one thing you learned about Northern Cassowary?")
     adventure.addToTextlog("Press (A) They are from New Guinea.")
     adventure.addToTextlog("Press (B) They can fly.")
-    while (!(controller.A.isPressed() || controller.B.isPressed())) {
-        pause(100)
-    }
+    pauseUntil(function on_pause_until(): boolean {
+        return controller.A.isPressed() || controller.B.isPressed()
+    })
     if (controller.A.isPressed()) {
         adventure.addToTextlog("That's right!")
         game.over(true)

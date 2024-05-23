@@ -7,8 +7,9 @@ def quest1():
     adventure.add_to_textlog("Press (A) to enter the forests of Northern New Guinea.")
     adventure.add_to_textlog("Press (B) to give up and go home.")
     
-    while not (controller.A.is_pressed() or controller.B.is_pressed()):
-        pause(100)
+    def on_pause_until():
+            return controller.A.is_pressed() or controller.B.is_pressed()
+    pause_until(on_pause_until)
     
     if controller.A.is_pressed():
         adventure.add_to_textlog("Fact about New Guinea's cassowary habitats.")
@@ -27,8 +28,9 @@ def quest2():
     adventure.add_to_textlog("Press (A) to look left.")
     adventure.add_to_textlog("Press (B) to look right.")
     
-    while not (controller.A.is_pressed() or controller.B.is_pressed()):
-        pause(100)
+    def on_pause_until():
+            return controller.A.is_pressed() or controller.B.is_pressed()
+    pause_until(on_pause_until)
     
     if controller.A.is_pressed():
         adventure.add_to_textlog("You found one!")
@@ -47,8 +49,9 @@ def quest3():
     adventure.add_to_textlog("Press (A) to approach it.")
     adventure.add_to_textlog("Press (B) to note the location for scientists.")
     
-    while not (controller.A.is_pressed() or controller.B.is_pressed()):
-        pause(100)
+    def on_pause_until():
+            return controller.A.is_pressed() or controller.B.is_pressed()
+    pause_until(on_pause_until)
     
     if controller.A.is_pressed():
         adventure.add_to_textlog("It makes a scary noise and runs into the forest.")
@@ -62,13 +65,14 @@ def quest4():
     Beat1""")),
         music.PlaybackMode.IN_BACKGROUND)
     adventure.add_image_to_text_log(assets.image("""
-    cass3"""))
+    cass4"""))
     adventure.add_to_textlog("What's one thing you learned about Northern Cassowary?")
     adventure.add_to_textlog("Press (A) They are from New Guinea.")
     adventure.add_to_textlog("Press (B) They can fly.")
     
-    while not (controller.A.is_pressed() or controller.B.is_pressed()):
-            pause(100)
+    def on_pause_until():
+            return controller.A.is_pressed() or controller.B.is_pressed()
+    pause_until(on_pause_until)
         
     if controller.A.is_pressed():
             adventure.add_to_textlog("That's right!")
